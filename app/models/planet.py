@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db import db
 
 class Planet(db.Model):
@@ -7,6 +7,7 @@ class Planet(db.Model):
     description: Mapped[str]
     diameter: Mapped[int] #in kilometers
     number_of_moons: Mapped[int]
+    moons: Mapped[list["Moon"]] = relationship(back_populates="planet")
     
     def to_dict(self):
         planet_as_dict = {}
