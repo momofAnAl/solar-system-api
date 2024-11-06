@@ -5,7 +5,7 @@ class Planet(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str]
     description: Mapped[str]
-    diameter: Mapped[int] #in kilometers
+    diameter_in_km: Mapped[int] #in kilometers
     number_of_moons: Mapped[int]
     moons: Mapped[list["Moon"]] = relationship(back_populates="planet")
     
